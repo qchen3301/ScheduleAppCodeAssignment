@@ -5,7 +5,6 @@ import UserModal from './UserModal'
 export default class Appointments extends Component {
     state = {
         modalVisible: false,
-        appointmentSet: '',
         clicks: 0,
         btnColor: ''
     }
@@ -18,10 +17,12 @@ export default class Appointments extends Component {
         alert("Button clicked!")
         this.setState({
             clicks: this.state.clicks + 1,
-            btnColor: "red"
+            btnColor: "red",
+            modalVisible: !this.state.modalVisible
         })
         console.log("You clicked 9AM " + this.state.clicks + " amount of times")
         console.log("The button color is now " + this.state.btnColor)
+        console.log("Modal open? " + this.state.modalVisible)
     }
 
 
@@ -32,7 +33,7 @@ export default class Appointments extends Component {
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
 
-        <UserModal/>
+        <UserModal show={this.state.modalVisible}/>
         <button style={{background: this.state.btnColor}} onClick={this.alertTest}>9 AM</button>
         <button>10 AM</button>
         <button>11 AM</button>
