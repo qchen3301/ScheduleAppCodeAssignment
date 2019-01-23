@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import './App.css'
+import Appointments from './components/Appointments'
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div>
-        Hello World From Appointment App!
+        Hello World From Appointment App! Here is the home page <br/> <br/>
+        <Appointments/>
       </div>
     )
   }
 }
-
-export default App;
