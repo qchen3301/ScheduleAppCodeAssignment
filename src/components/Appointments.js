@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-// import UserModal from './UserModal'
+import UserModal from './UserModal'
 
 
 export default class Appointments extends Component {
     state = {
+        modalVisible: false,
         appointmentSet: '',
         clicks: 0,
         btnColor: ''
@@ -30,7 +31,8 @@ export default class Appointments extends Component {
       <div>
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
-        {/* <UserModal/> */}
+
+        <UserModal/>
         <button style={{background: this.state.btnColor}} onClick={this.alertTest}>9 AM</button>
         <button>10 AM</button>
         <button>11 AM</button>
