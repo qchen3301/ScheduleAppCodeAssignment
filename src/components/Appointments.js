@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import UserModal from './UserModal'
 
 
 export default class Appointments extends Component {
@@ -11,6 +11,7 @@ export default class Appointments extends Component {
       <div>
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
+        <UserModal/>
         <button onClick={this.alertTest}>9 AM</button>
         <button>10 AM</button>
         <button>11 AM</button>
