@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import UserModal from './UserModal'
+// import UserModal from './UserModal'
 
 
 export default class Appointments extends Component {
     state = {
         appointmentSet: '',
-        clicks: 0
+        clicks: 0,
+        btnColor: ''
     }
 
     setAppointment = () => {
@@ -14,19 +15,23 @@ export default class Appointments extends Component {
 
     alertTest = () => {
         alert("Button clicked!")
-        console.log("You clicked 9AM")
         this.setState({
-            clicks: this.state.clicks + 1
+            clicks: this.state.clicks + 1,
+            btnColor: "red"
         })
         console.log("You clicked 9AM " + this.state.clicks + " amount of times")
+        console.log("The button color is now " + this.state.btnColor)
     }
+
+
   render() {
+
     return (
       <div>
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
-        <UserModal/>
-        <button onClick={this.alertTest}>9 AM</button>
+        {/* <UserModal/> */}
+        <button style={{background: this.state.btnColor}} onClick={this.alertTest}>9 AM</button>
         <button>10 AM</button>
         <button>11 AM</button>
         <button>12 PM Noon</button>
