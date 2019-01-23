@@ -3,8 +3,22 @@ import UserModal from './UserModal'
 
 
 export default class Appointments extends Component {
+    state = {
+        appointmentSet: '',
+        clicks: 0
+    }
+
+    setAppointment = () => {
+        console.log("You clicked 9AM")
+    }
+
     alertTest = () => {
         alert("Button clicked!")
+        console.log("You clicked 9AM")
+        this.setState({
+            clicks: this.state.clicks + 1
+        })
+        console.log("You clicked 9AM " + this.state.clicks + " amount of times")
     }
   render() {
     return (
