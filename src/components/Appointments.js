@@ -3,7 +3,6 @@ import * as AppActions from "../actions/AppActions"
 
 export default class Appointments extends Component {
     state = {
-        modalVisible: false,
         btnColor: 'blue',
         userID: 0
     }
@@ -12,6 +11,7 @@ export default class Appointments extends Component {
         AppActions.showHide(showModal)
         this.setState({btnColor})
         this.setState({userID})
+        // AppActions.setID(userID)
     }
 
   render() {

@@ -24,15 +24,18 @@ export default class UserModal extends Component {
 
     state = {
         showModal: AppStore.getShowModal(),
-        userId: this.props.userId
+        userInfo: {
+            name:'',
+            phone:''
+        }
     }
 
     componentDidMount() {
-        AppStore.on("modalToggled", this.showModal, this.getUserId)
+        AppStore.on("modalToggled", this.showModal)
     }
 
     componentWillUnMount() {
-        AppStore.removeListener("modalToggled", this.showModal, this.getUserId)
+        AppStore.removeListener("modalToggled", this.showModal)
     }
 
     showModal = () => {
@@ -43,18 +46,18 @@ export default class UserModal extends Component {
         AppActions.showHide(showModal)
     }
 
-    // handleChange = (event) => {
-    //     const userInfo = {...this.state.userInfo}
-    //     userInfo[event.target.name] = event.target.value
-    //     userInfo[event.target.phone] = event.target.value
-    //     this.setState({userInfo})
-    // }
+    handleChange = (event) => {
+        const userInfo = {...this.state.userInfo}
+        userInfo[event.target.name] = event.target.value
+        this.setState({userInfo})
+    }
 
-    // handleSubmit = async (event) => {
-    //     event.preventDefault()
-    //     alert("!")
-    //     this.setState({...this.state.userInfo})
-    // }
+    handleSubmit = async (event, showModal) => {
+        event.preventDefault()
+        alert("!")
+        this.setState({...this.state.userInfo})
+        AppActions.showHide(showModal)
+    }
 
   render() {
       if (!this.state.showModal) {
@@ -66,8 +69,8 @@ export default class UserModal extends Component {
         Hello World from a User's Modal! <br />
         If all goes as planned you should see me <br />
         when a timeslot button is clicked <br />
-        <button onClick={()=> this.onButtonClick(false)}>I'm done here. Take me awaaaay!!!</button>
-        {/* <form onSubmit = {this.handleSubmit}>
+        
+        <form onSubmit = {this.handleSubmit}>
             <input 
                 type='text'
                 name='name'
@@ -83,8 +86,8 @@ export default class UserModal extends Component {
                 onChange={this.handleChange}
                 /> <br/>
             <input type='submit' value='Save the date (or else)'/>
-            <button onClick={this.props.onClose}>Cancel</button>
-        </form> */}
+            <button onClick={()=> this.onButtonClick(false)}>Cancel</button>
+        </form>
       </div>
     )
   }
