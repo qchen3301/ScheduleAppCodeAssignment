@@ -41,10 +41,6 @@ export default class UserModal extends Component {
         this.setState({showModal: AppStore.getShowModal()})
     }
 
-    setUserID = () => {
-        this.setState({userId: AppStore.getUserId()})
-    }
-
     onButtonClick = (showModal) => {
         AppActions.showHide(showModal)
     }
