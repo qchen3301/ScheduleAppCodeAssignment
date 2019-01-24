@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
 import UserModal from './UserModal'
+import styled from 'styled-components'
+
+const StyledDiv = styled.div`
+    size: 0px;
+`
 
 export default class Users extends Component {
     state = {
@@ -7,13 +12,11 @@ export default class Users extends Component {
         userID: this.props.userID
     }
   render() {
-      if (!this.state.showComponent) {
-          return null
-      }
+
     return (
-      <div>
+      <StyledDiv>
         <UserModal userID = {this.state.userID}/>
-      </div>
+      </StyledDiv>
     )
   }
 }

@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import * as AppActions from "../actions/AppActions"
-import Users from './Users';
-import UserModal from './UserModal';
 
 export default class Appointments extends Component {
     state = {
@@ -15,7 +13,6 @@ export default class Appointments extends Component {
         this.setState({btnColor})
         this.setState({userID})
     }
-
 
   render() {
 
@@ -33,7 +30,6 @@ export default class Appointments extends Component {
         <button onClick={()=>this.onButtonClick(true, "red", 7)}>3 PM</button>
         <button onClick={()=>this.onButtonClick(true, "red", 8)}>4 PM</button>
         <button onClick={()=>this.onButtonClick(true, "red", 9)}>5 PM</button>
-        <Users userID = {this.state.userID}/>
       </div>
     )
   }

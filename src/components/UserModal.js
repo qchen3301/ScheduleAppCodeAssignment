@@ -24,7 +24,7 @@ export default class UserModal extends Component {
 
     state = {
         showModal: AppStore.getShowModal(),
-        userId: AppStore.getUserId()
+        userId: this.props.userId
     }
 
     componentDidMount() {
