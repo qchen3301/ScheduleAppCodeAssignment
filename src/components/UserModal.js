@@ -25,7 +25,7 @@ export default class UserModal extends Component {
             name:'',
             phone:''
         },
-        modalVisible: false
+        modalVisible: this.props.modalVisible
     }
 
     handleChange = (event) => {

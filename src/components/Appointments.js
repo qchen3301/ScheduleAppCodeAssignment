@@ -31,14 +31,16 @@ export default class Appointments extends Component {
       <div>
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
-        {/* ternary in button tag triggers the modal */}
         <button 
             style={{background: this.state.btnColor}} 
             onClick={this.alertTest}>9 AM </button>
         <button 
             style={{background: this.state.btnColor}}
             onClick={this.alertTest}>10 AM </button>
-        {this.state.modalVisible ? <UserModal/> : null}
+        {/* ternary in button tag triggers the modal displaying */}
+        {this.state.modalVisible ? 
+            <UserModal
+                modalVisible = {this.state.modalVisible} /> : null}
       </div>
     )
   }
