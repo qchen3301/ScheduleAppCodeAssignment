@@ -14,6 +14,16 @@ class BtnColorStore extends EventEmitter {
     getAll() {
         return this.btnColor
     }
+
+    handleActions(action) {
+        switch(action.type) {
+            case "RESERVE_TIME": {
+                this.getBtnColor(action.text)
+                break
+            }
+            default:
+        }
+    }
 }
 
 const btnColorStore = new BtnColorStore()
