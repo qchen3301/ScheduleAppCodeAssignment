@@ -1,22 +1,31 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-// const ModalContent = styled.div`
-//     background-color: #fefefe;
-//     color: blue;
-//     margin: auto;
-//     padding: 20px;
-//     border: 1px solid #888;
-//     width: 80%;
-// `
-
+const ModalBackgroundDiv = styled.div`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.3);
+    padding: 50;
+`
+const ModalForm = styled.form`
+    background-color: black;
+    border-radius: 5;
+    max-width: 500;
+    min-height: 300;
+    margin: 0 auto;
+    padding: 30;
+`
 export default class UserModal extends Component {
 
     state = {
         userInfo: {
             name:'',
             phone:''
-        }
+        },
+        modalVisible: false
     }
 
     handleChange = (event) => {
@@ -29,14 +38,16 @@ export default class UserModal extends Component {
     handleSubmit = async (event) => {
         event.preventDefault()
         alert("!")
+        this.setState({...this.state.userInfo})
     }
+
   render() {
     return (
-      <div>
+      <ModalBackgroundDiv show = {this.state.modalVisible}>
         Hello World from a User's Modal! <br />
         If all goes as planned you should see me <br />
         when a timeslot button is clicked <br />
-        <form onSubmit = {this.handleSubmit}>
+        <ModalForm onSubmit = {this.handleSubmit}>
             <input 
                 type='text'
                 name='name'
@@ -52,9 +63,9 @@ export default class UserModal extends Component {
                 onChange={this.handleChange}
                 required/> <br/>
             <input type='submit' value='Save the date (or else)'/>
-            <button>Cancel</button>
-        </form>
-      </div>
+            <button onClick={this.toggleModal}>Cancel</button>
+        </ModalForm>
+      </ModalBackgroundDiv>
     )
   }
 }
