@@ -2,7 +2,7 @@ import dispatcher from "../Dispatcher"
 import {EventEmitter} from "events"
 import * as AppActions from "../actions/AppActions"
 
-export default class AppStore extends EventEmitter {
+class AppStore extends EventEmitter {
 
     constructor() {
         super()
@@ -27,4 +27,6 @@ export default class AppStore extends EventEmitter {
 }
 
 const appStore = new AppStore()
-dispatcher.register(AppStore.handleActions.bind(appStore))
+dispatcher.register(appStore.handleActions.bind(appStore))
+
+export default appStore

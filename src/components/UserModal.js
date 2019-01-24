@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import AppStore from "../stores/AppStore"
+import AppStore from "../store/AppStore"
 import styled from 'styled-components'
 
 // const ModalBackgroundDiv = styled.div`
@@ -26,7 +26,7 @@ export default class UserModal extends Component {
         //     name:'',
         //     phone:''
         // },
-        showModal: AppStore.showModal()
+        showModal: AppStore.getShowModal()
     }
 
     componentDidMount() {
@@ -38,7 +38,7 @@ export default class UserModal extends Component {
     }
 
     showModal = () => {
-        this.setState({showModal: AppStore.showModal()})
+        this.setState({showModal: AppStore.getShowModal()})
     }
 
     // handleChange = (event) => {
