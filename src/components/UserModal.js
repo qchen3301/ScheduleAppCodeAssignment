@@ -71,7 +71,7 @@ export default class UserModal extends Component {
                 onChange={this.handleChange}
                 /> <br/>
             <input type='submit' value='Save the date (or else)'/>
-            <button onClick={this.toggleModal}>Cancel</button>
+            <button onClick={this.props.onClose}>Cancel</button>
         </form>
       </div>
     )
