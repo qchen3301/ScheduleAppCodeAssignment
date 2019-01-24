@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import UserIDStore from '../store/UserIDStore'
 import * as AppActions from "../actions/AppActions"
+import BtnColorStore from '../store/BtnColorStore';
+import btnColorStore from '../store/BtnColorStore';
 
 export default class Appointments extends Component {
     state = {
-        btnColor: '',
+        btnColor: btnColorStore.getAll(),
         userID: UserIDStore.getAll()
+    }
+
+    componentWillMount() {
+      UserIDStore.on("change", () => {
+        this.setState({userID: UserIDStore.getAll()})
+      })
+      BtnColorStore.on("change", ()=> {
+        this.setState({btnColor: btnColorStore.getAll()})
+      })
     }
 
     onButtonClick = (showModal,userID) => {

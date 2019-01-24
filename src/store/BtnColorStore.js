@@ -6,6 +6,11 @@ class BtnColorStore extends EventEmitter {
         this.btnColor = "blue"
     }
 
+    getBtnColor(btnColorFromAppoint) {
+        this.btnColor = btnColorFromAppoint
+        this.emit("change")
+    }
+
     getAll() {
         return this.btnColor
     }
