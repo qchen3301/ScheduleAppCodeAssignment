@@ -4,31 +4,31 @@ import * as AppActions from "../actions/AppActions"
 import UserModal from './UserModal'
 
 export default class Appointments extends Component {
-    state = {
-        modalVisible: false,
-        clicks: 0,
-        btnColor: ''
-    }
+    // state = {
+    //     modalVisible: false,
+    //     clicks: 0,
+    //     btnColor: ''
+    // }
 
-    setAppointment = () => {
-        console.log("You clicked 9AM")
-    }
+    // setAppointment = () => {
+    //     console.log("You clicked 9AM")
+    // }
 
-    alertTest = () => {
-        alert("Button clicked!")
-        this.setState({
-            clicks: this.state.clicks + 1,
-            btnColor: "red",
-            modalVisible: !this.state.modalVisible
-        })
+    // alertTest = () => {
+    //     alert("Button clicked!")
+    //     this.setState({
+    //         clicks: this.state.clicks + 1,
+    //         btnColor: "red",
+    //         modalVisible: !this.state.modalVisible
+    //     })
 
-        console.log("You clicked 9AM " + this.state.clicks + " amount of times")
-        console.log("The button color is now " + this.state.btnColor)
-        console.log("Modal open? " + this.state.modalVisible)
-    }
-    toggleModal = () => {
-        this.setState({modalVisible: !this.state.modalVisible})
-    }
+    //     console.log("You clicked 9AM " + this.state.clicks + " amount of times")
+    //     console.log("The button color is now " + this.state.btnColor)
+    //     console.log("Modal open? " + this.state.modalVisible)
+    // }
+    // toggleModal = () => {
+    //     this.setState({modalVisible: !this.state.modalVisible})
+    // }
 
     onButtonClick = (showModal) => {
         AppActions.showHide(showModal)

@@ -55,9 +55,9 @@ export default class UserModal extends Component {
     // }
 
   render() {
-    //   if (!this.props.modalVisible) {
-    //       return null
-    //   }
+      if (!this.state.showModal) {
+          return null
+      }
 
     return (
       <div >
