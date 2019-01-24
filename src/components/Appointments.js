@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import UserIDStore from '../store/UserIDStore'
 import * as AppActions from "../actions/AppActions"
 
 export default class Appointments extends Component {
     state = {
         btnColor: '',
-        userID: 0
+        userID: UserIDStore.getAll()
     }
 
     onButtonClick = (showModal,userID) => {
