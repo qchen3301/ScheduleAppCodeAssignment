@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import * as AppActions from "../actions/AppActions"
+
 import UserModal from './UserModal'
 
 export default class Appointments extends Component {
@@ -28,6 +30,10 @@ export default class Appointments extends Component {
         this.setState({modalVisible: !this.state.modalVisible})
     }
 
+    onButtonClick = (showModal) => {
+        AppActions.showHide(showModal)
+    }
+
   render() {
 
     return (
@@ -35,11 +41,15 @@ export default class Appointments extends Component {
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
 
-        <button onClick={this.toggleModal}>Open Modal</button>
+        <button onClick={()=> this.onButtonClick(true)}>
+            9AM Show Modal
+        </button>
+
+        {/* <button onClick={this.toggleModal}>Open Modal</button>
         <UserModal 
             show={this.state.modalVisible} 
             onClose={this.toggleModal}
-            modalVisible = {this.state.modalVisible}/>
+            modalVisible = {this.state.modalVisible}/> */}
       </div>
     )
   }
