@@ -30,5 +30,5 @@ class UserIDStore extends EventEmitter {
 
 const userIDStore = new UserIDStore()
 dispatcher.register(userIDStore.handleActions.bind(userIDStore))
-window.dispatcher = dispatcher
+
 export default userIDStore
