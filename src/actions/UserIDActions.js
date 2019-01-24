@@ -1,5 +1,8 @@
 import dispatcher from "../Dispatcher"
 
-export default {
-    
+export function getId(number) {
+    dispatcher.dispatch({
+        type: "GET_ID",
+        number
+    })
 }
