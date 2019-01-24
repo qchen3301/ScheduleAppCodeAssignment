@@ -1,45 +1,17 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
 import * as AppActions from "../actions/AppActions"
 
-// import UserModal from './UserModal'
-
-const StyledButton = styled.button`
-    background-color: red;
-`
-
 export default class Appointments extends Component {
-    state = {
-        modalVisible: false,
-        clicks: 0,
-        btnColor: 'blue'
-    }
-
-    // setAppointment = () => {
-    //     console.log("You clicked 9AM")
+    // state = {
+    //     modalVisible: false,
+    //     clicks: 0,
+    //     btnColor: 'blue'
     // }
 
-    // alertTest = () => {
-    //     alert("Button clicked!")
-    //     this.setState({
-    //         clicks: this.state.clicks + 1,
-    //         btnColor: "red",
-    //         modalVisible: !this.state.modalVisible
-    //     })
-
-    //     console.log("You clicked 9AM " + this.state.clicks + " amount of times")
-    //     console.log("The button color is now " + this.state.btnColor)
-    //     console.log("Modal open? " + this.state.modalVisible)
-    // }
-    // toggleModal = () => {
-    //     this.setState({modalVisible: !this.state.modalVisible})
-    // }
-
-    onButtonClick = (showModal, reserveTime, userID) => {
+    onButtonClick = (showModal) => {
         AppActions.showHide(showModal)
-        AppActions.reserveTime(reserveTime)
-        AppActions.setID(userID)
     }
+
 
   render() {
 
@@ -48,16 +20,15 @@ export default class Appointments extends Component {
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
 
-        <button
-            onClick={()=> this.onButtonClick(true, "red", 1)}>
-            9AM Show Modal
-        </button>
-
-        {/* <button onClick={this.toggleModal}>Open Modal</button>
-        <UserModal 
-            show={this.state.modalVisible} 
-            onClose={this.toggleModal}
-            modalVisible = {this.state.modalVisible}/> */}
+        <button onClick={()=> this.onButtonClick(true)}> 9AM </button>
+        <button onClick={()=>this.onButtonClick(true)}> 10 AM </button>
+        <button onClick={()=>this.onButtonClick(true)}> 11 AM </button>
+        <button onClick={()=>this.onButtonClick(true)}> 12 AM </button>
+        <button onClick={()=>this.onButtonClick(true)}> 1 PM </button>
+        <button onClick={()=>this.onButtonClick(true)}> 2 PM </button>
+        <button onClick={()=>this.onButtonClick(true)}> 3 PM </button>
+        <button onClick={()=>this.onButtonClick(true)}> 4 PM </button>
+        <button onClick={()=>this.onButtonClick(true)}> 5 PM </button>
       </div>
     )
   }

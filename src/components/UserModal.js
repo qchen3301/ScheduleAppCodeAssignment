@@ -23,23 +23,26 @@ import styled from 'styled-components'
 export default class UserModal extends Component {
 
     state = {
-        // userInfo: {
-        //     name:'',
-        //     phone:''
-        // },
-        showModal: AppStore.getShowModal()
+        showModal: AppStore.getShowModal(),
+        userId: AppStore.getUserId()
     }
 
     componentDidMount() {
-        AppStore.on("storeUpdated", this.showModal)
+        AppStore.on("modalToggled", this.showModal, this.getUserId)
+        // AppStore.on("storeUpdated", this.getUserId)
     }
 
     componentWillUnMount() {
-        AppStore.removeListener("storeUpdated", this.showModal)
+        AppStore.removeListener("modalToggled", this.showModal, this.getUserId)
+        // AppStore.removeListener("storeUpdated", this.getUserId)
     }
 
     showModal = () => {
         this.setState({showModal: AppStore.getShowModal()})
+    }
+
+    setUserID = () => {
+        this.setState({userId: AppStore.getUserId()})
     }
 
     onButtonClick = (showModal) => {

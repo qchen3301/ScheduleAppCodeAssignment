@@ -8,8 +8,6 @@ export const APP_ACTIONS = {
     BTN_RED: 'AppActions.ButtonRed'
 }
 
-
-
 export function showHide (modalForm) {
     dispatcher.dispatch({
         type: APP_ACTIONS.SHOW_MODAL,
@@ -34,7 +32,7 @@ export function inputPhone (phoneField) {
 export function setID (setID) {
     dispatcher.dispatch({
         type: APP_ACTIONS.SET_ID,
-        value: setID
+        number: setID
     })
 }
 

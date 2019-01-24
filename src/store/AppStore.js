@@ -7,12 +7,18 @@ class AppStore extends EventEmitter {
     constructor() {
         super()
         this.showModal = false
+        this.userID = 0
     }
 
     handleActions(action) {
         switch (action.type) {
             case AppActions.APP_ACTIONS.SHOW_MODAL: {
                 this.showModal = action.value
+                this.emit("modalToggled")
+                break
+            }
+            case AppActions.APP_ACTIONS.SET_ID: {
+                this.userID = action.value
                 this.emit("storeUpdated")
                 break
             }
@@ -23,6 +29,10 @@ class AppStore extends EventEmitter {
 
     getShowModal() {
         return this.showModal
+    }
+
+    getUserId() {
+        return this.userID
     }
 }
 
