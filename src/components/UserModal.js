@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import AppStore from "../stores/AppStore"
 import styled from 'styled-components'
 
 // const ModalBackgroundDiv = styled.div`
@@ -21,36 +22,49 @@ import styled from 'styled-components'
 export default class UserModal extends Component {
 
     state = {
-        userInfo: {
-            name:'',
-            phone:''
-        },
-        modalVisible: this.props.modalVisible
+        // userInfo: {
+        //     name:'',
+        //     phone:''
+        // },
+        showModal: AppStore.showModal()
     }
 
-    handleChange = (event) => {
-        const userInfo = {...this.state.userInfo}
-        userInfo[event.target.name] = event.target.value
-        userInfo[event.target.phone] = event.target.value
-        this.setState({userInfo})
+    componentDidMount() {
+        AppStore.on("storeUpdated", this.showModal)
     }
 
-    handleSubmit = async (event) => {
-        event.preventDefault()
-        alert("!")
-        this.setState({...this.state.userInfo})
+    componentWillUnMount() {
+        AppStore.removeListener("storeUpdated", this.showModal)
     }
+
+    showModal = () => {
+        this.setState({showModal: AppStore.showModal()})
+    }
+
+    // handleChange = (event) => {
+    //     const userInfo = {...this.state.userInfo}
+    //     userInfo[event.target.name] = event.target.value
+    //     userInfo[event.target.phone] = event.target.value
+    //     this.setState({userInfo})
+    // }
+
+    // handleSubmit = async (event) => {
+    //     event.preventDefault()
+    //     alert("!")
+    //     this.setState({...this.state.userInfo})
+    // }
 
   render() {
-      if (!this.props.modalVisible) {
-          return null
-      }
+    //   if (!this.props.modalVisible) {
+    //       return null
+    //   }
+
     return (
       <div >
         Hello World from a User's Modal! <br />
         If all goes as planned you should see me <br />
         when a timeslot button is clicked <br />
-        <form onSubmit = {this.handleSubmit}>
+        {/* <form onSubmit = {this.handleSubmit}>
             <input 
                 type='text'
                 name='name'
@@ -67,7 +81,7 @@ export default class UserModal extends Component {
                 /> <br/>
             <input type='submit' value='Save the date (or else)'/>
             <button onClick={this.props.onClose}>Cancel</button>
-        </form>
+        </form> */}
       </div>
     )
   }
