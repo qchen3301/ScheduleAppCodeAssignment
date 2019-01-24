@@ -3,21 +3,25 @@ import * as AppActions from "../actions/AppActions"
 
 export default class Appointments extends Component {
     state = {
-        btnColor: ['red','','','','','','','',''],
+        btnColor: '',
         userID: 0
     }
 
-    onButtonClick = (showModal,btnColor,userID) => {
+    onButtonClick = (showModal,userID) => {
         AppActions.showHide(showModal)
-        this.setState({btnColor})
+        // this.setState({btnColor})
         this.setState({userID})
         // AppActions.setID(userID)
+    }
+
+    changeColor = (btnColor) => {
+      return btnColor
     }
 
   render() {
     // styles buttons and triggers a change to the color red when a timeslot is reserved
     const reservedTimeSlot = {  
-      backgroundColor: this.state.btnColor.id,
+      backgroundColor: this.changeColor(),
       border: 'none',
       color: 'black',
       padding: '15px 32px',
@@ -33,9 +37,9 @@ export default class Appointments extends Component {
         Select Your Appointment Time Below <br />
 
         <button id = {0}
-          onClick={()=>this.onButtonClick(true, "red", 1)}
-          style = {reservedTimeSlot} >9 AM</button>  
-        <button 
+          onClick={() => {this.onButtonClick(true, 1); this.changeColor("red")}}
+          style = {{backgroundColor:this.changeColor()}} > 9 AM </button>  
+        {/* <button 
           onClick={()=>this.onButtonClick(true, "red", 2)}
           style = {reservedTimeSlot} > 10 AM </button>
         <button 
@@ -58,7 +62,7 @@ export default class Appointments extends Component {
           style = {reservedTimeSlot}>4 PM</button>
         <button 
           onClick={()=>this.onButtonClick(true, "red", 9)}
-          style = {reservedTimeSlot}>5 PM</button>
+          style = {reservedTimeSlot}>5 PM</button> */}
       </div>
     )
   }
