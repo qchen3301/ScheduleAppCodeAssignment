@@ -1,14 +1,19 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import * as AppActions from "../actions/AppActions"
 
-import UserModal from './UserModal'
+// import UserModal from './UserModal'
+
+const StyledButton = styled.button`
+    background-color: red;
+`
 
 export default class Appointments extends Component {
-    // state = {
-    //     modalVisible: false,
-    //     clicks: 0,
-    //     btnColor: ''
-    // }
+    state = {
+        modalVisible: false,
+        clicks: 0,
+        btnColor: 'blue'
+    }
 
     // setAppointment = () => {
     //     console.log("You clicked 9AM")
@@ -30,9 +35,10 @@ export default class Appointments extends Component {
     //     this.setState({modalVisible: !this.state.modalVisible})
     // }
 
-    onButtonClick = (showModal, reserveTime) => {
+    onButtonClick = (showModal, reserveTime, userID) => {
         AppActions.showHide(showModal)
         AppActions.reserveTime(reserveTime)
+        AppActions.setID(userID)
     }
 
   render() {
@@ -42,7 +48,8 @@ export default class Appointments extends Component {
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
 
-        <button onClick={()=> this.onButtonClick(true, "red")}>
+        <button
+            onClick={()=> this.onButtonClick(true, "red", 1)}>
             9AM Show Modal
         </button>
 
