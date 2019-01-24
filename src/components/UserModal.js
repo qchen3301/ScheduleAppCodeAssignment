@@ -29,12 +29,10 @@ export default class UserModal extends Component {
 
     componentDidMount() {
         AppStore.on("modalToggled", this.showModal, this.getUserId)
-        // AppStore.on("storeUpdated", this.getUserId)
     }
 
     componentWillUnMount() {
         AppStore.removeListener("modalToggled", this.showModal, this.getUserId)
-        // AppStore.removeListener("storeUpdated", this.getUserId)
     }
 
     showModal = () => {
