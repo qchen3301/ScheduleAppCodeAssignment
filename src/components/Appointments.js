@@ -30,8 +30,9 @@ export default class Appointments extends Component {
     //     this.setState({modalVisible: !this.state.modalVisible})
     // }
 
-    onButtonClick = (showModal) => {
+    onButtonClick = (showModal, reserveTime) => {
         AppActions.showHide(showModal)
+        AppActions.reserveTime(reserveTime)
     }
 
   render() {
@@ -41,7 +42,7 @@ export default class Appointments extends Component {
         Hello World from Appointments Component! <br />
         Select Your Appointment Time Below <br />
 
-        <button onClick={()=> this.onButtonClick(true)}>
+        <button onClick={()=> this.onButtonClick(true, "red")}>
             9AM Show Modal
         </button>
 
