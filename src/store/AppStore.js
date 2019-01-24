@@ -17,11 +17,6 @@ class AppStore extends EventEmitter {
                 this.emit("modalToggled")
                 break
             }
-            // case AppActions.APP_ACTIONS.SET_ID: {
-            //     this.userID = action.value
-            //     this.emit("IDSet")
-            //     break
-            // }
             default: {
             }
         }
@@ -30,10 +25,6 @@ class AppStore extends EventEmitter {
     getShowModal() {
         return this.showModal
     }
-
-    // getUserID() {
-    //     return this.userID
-    // }
 }
 
 const appStore = new AppStore()
