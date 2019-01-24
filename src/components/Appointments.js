@@ -7,8 +7,8 @@ import * as BtnColorActions from '../actions/BtnColorActions'
 
 export default class Appointments extends Component {
     state = {
-        btnColor: BtnColorStore.getAll(),
-        userID: UserIDStore.getAll()
+        btnColor: "", 
+        userID: 0
     }
 
     componentWillMount() {
@@ -20,12 +20,10 @@ export default class Appointments extends Component {
       })
     }
 
-    onButtonClick = (showModal,userID, reserved) => {
+    onButtonClick = (showModal,userID) => {
         AppActions.showHide(showModal)
         UserIDActions.getID(userID)
-        BtnColorActions.reserveTime(reserved)
-        console.log(this.state.userID)
-        // AppActions.setID(userID)
+        BtnColorActions.reserveTime("red")
     }
 
   render() {
@@ -47,10 +45,10 @@ export default class Appointments extends Component {
         Select Your Appointment Time Below <br />
 
         <button
-          onClick={() => {this.onButtonClick(true, 1, "red")}}
-           style={reservedTimeSlot}> 9 AM </button>  
+          onClick={() => {this.onButtonClick(true, 1)} }
+          style={reservedTimeSlot}> 9 AM </button>  
         <button 
-          onClick={()=>this.onButtonClick(true, 2, "red")}
+          onClick={()=>this.onButtonClick(true, 2)}
           style={reservedTimeSlot}> 10 AM </button>
         <button 
           onClick={()=>this.onButtonClick(true, 3, "red")}
