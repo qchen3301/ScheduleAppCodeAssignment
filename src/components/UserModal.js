@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AppStore from "../store/AppStore"
+import * as AppActions from "../actions/AppActions"
 import styled from 'styled-components'
 
 // const ModalBackgroundDiv = styled.div`
@@ -41,6 +42,10 @@ export default class UserModal extends Component {
         this.setState({showModal: AppStore.getShowModal()})
     }
 
+    onButtonClick = (showModal) => {
+        AppActions.showHide(showModal)
+    }
+
     // handleChange = (event) => {
     //     const userInfo = {...this.state.userInfo}
     //     userInfo[event.target.name] = event.target.value
@@ -64,6 +69,7 @@ export default class UserModal extends Component {
         Hello World from a User's Modal! <br />
         If all goes as planned you should see me <br />
         when a timeslot button is clicked <br />
+        <button onClick={()=> this.onButtonClick(false)}>I'm done here. Take me awaaaay!!!</button>
         {/* <form onSubmit = {this.handleSubmit}>
             <input 
                 type='text'
