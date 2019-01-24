@@ -1,6 +1,6 @@
 import dispatcher from "../Dispatcher"
 
-export function getId(number) {
+export function getID(number) {
     dispatcher.dispatch({
         type: "GET_ID",
         number

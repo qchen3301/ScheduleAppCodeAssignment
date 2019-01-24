@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import UserIDStore from '../store/UserIDStore'
+import BtnColorStore from '../store/BtnColorStore'
 import * as AppActions from "../actions/AppActions"
-import BtnColorStore from '../store/BtnColorStore';
-import btnColorStore from '../store/BtnColorStore';
+import * as UserIDActions from '../actions/UserIDActions'
 
 export default class Appointments extends Component {
     state = {
-        btnColor: btnColorStore.getAll(),
+        btnColor: BtnColorStore.getAll(),
         userID: UserIDStore.getAll()
     }
 
@@ -15,13 +15,13 @@ export default class Appointments extends Component {
         this.setState({userID: UserIDStore.getAll()})
       })
       BtnColorStore.on("change", ()=> {
-        this.setState({btnColor: btnColorStore.getAll()})
+        this.setState({btnColor: BtnColorStore.getAll()})
       })
     }
 
     onButtonClick = (showModal,userID) => {
         AppActions.showHide(showModal)
-        // this.setState({btnColor})
+        UserIDActions.getID(userID)
         this.setState({userID})
         // AppActions.setID(userID)
     }
@@ -49,7 +49,7 @@ export default class Appointments extends Component {
         Select Your Appointment Time Below <br />
 
         <button id = {0}
-          onClick={() => {this.onButtonClick(true, 1); this.changeColor("red")}}
+          onClick={() => {this.onButtonClick(true, 11); this.changeColor("red")}}
           style = {{backgroundColor:this.changeColor()}} > 9 AM </button>  
         {/* <button 
           onClick={()=>this.onButtonClick(true, "red", 2)}
