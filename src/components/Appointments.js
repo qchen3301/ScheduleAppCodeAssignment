@@ -40,16 +40,6 @@ export default class Appointments extends Component {
             show={this.state.modalVisible} 
             onClose={this.toggleModal}
             modalVisible = {this.state.modalVisible}/>
-        {/* <button 
-            style={{background: this.state.btnColor}} 
-            onClick={this.alertTest}>9 AM </button>
-        <button 
-            style={{background: this.state.btnColor}}
-            onClick={this.alertTest}>10 AM </button> */}
-        {/* ternary in button tag triggers the modal displaying */}
-        {/* {this.state.modalVisible ? 
-            <UserModal
-                modalVisible = {this.state.modalVisible} /> : null} */}
       </div>
     )
   }

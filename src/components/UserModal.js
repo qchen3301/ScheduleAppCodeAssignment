@@ -39,11 +39,6 @@ export default class UserModal extends Component {
         event.preventDefault()
         alert("!")
         this.setState({...this.state.userInfo})
-
-    }
-
-    toggleModal = () => {
-        this.setState({modalVisible: !this.state.modalVisible})
     }
 
   render() {
