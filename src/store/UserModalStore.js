@@ -13,7 +13,7 @@ class UserModalStore extends EventEmitter {
     }
 
     createUserInfo(name, phone) {
-        const id =  1
+        const id =  1 //placeholder: ideally, id should be drawn from Appointment.js or AppointmentsStore.js
 
         this.userInfo.push = ({
             id,
