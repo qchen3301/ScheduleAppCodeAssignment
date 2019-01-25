@@ -1,5 +1,8 @@
 This app is a code assignment designed to assess technical knowledge of using JS frameworks, front-end rendering and client-side rendering. 
 
+## Deployed Live Site
+[Netlify](https://determined-davinci-ae1d0f.netlify.com/)
+
 ## Technologies Used
 ##### Required
 
