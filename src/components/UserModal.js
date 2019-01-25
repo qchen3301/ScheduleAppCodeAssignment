@@ -5,15 +5,15 @@ import * as UserInfoActions from "../actions/UserInfoActions"
 import styled from 'styled-components'
 import UserModalStore from '../store/UserModalStore'
 
-// const ModalBackgroundDiv = styled.div`
-//     position: fixed;
-//     top: 0;
-//     bottom: 0;
-//     left: 0;
-//     right: 0;
-//     background-color: rgba(0,0,0,0.3);
-//     padding: 50;
-// `
+const ModalBackgroundDiv = styled.div`
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.3);
+    padding: 50;
+`
 // const ModalForm = styled.form`
 //     background-color: black;
 //     border-radius: 5;
@@ -74,7 +74,7 @@ export default class UserModal extends Component {
       }
 
     return (
-      <div >
+      <ModalBackgroundDiv >
         Hello World from a User's Modal! <br />
         If all goes as planned you should see me <br />
         when a timeslot button is clicked <br />
@@ -98,7 +98,7 @@ export default class UserModal extends Component {
             <input type='submit' value='Save the date (or else)'/>
             
         </form> */}
-      </div>
+      </ModalBackgroundDiv>
     )
   }
 }

@@ -1,4 +1,4 @@
-import dispatcher from "../dispatcher"
+import dispatcher from "../Dispatcher"
 
 export function createUserInfo(text, number) {
     dispatcher.dispatch({
