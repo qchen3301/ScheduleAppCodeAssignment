@@ -52,18 +52,21 @@ export default class UserModal extends Component {
         AppActions.showHide(showModal)
     }
 
-    handleChange = (event) => {
-        const userInfo = {...this.state.userInfo}
-        userInfo[event.target.name] = event.target.value
-        this.setState({userInfo})
+    createUserInfo() {
+        UserInfoActions.createUserInfo()
     }
+    // handleChange = (event) => {
+    //     const userInfo = {...this.state.userInfo}
+    //     userInfo[event.target.name] = event.target.value
+    //     this.setState({userInfo})
+    // }
 
-    handleSubmit = async (event, showModal) => {
-        event.preventDefault()
-        alert("!")
-        this.setState({...this.state.userInfo})
-        AppActions.showHide(showModal)
-    }
+    // handleSubmit = async (event, showModal) => {
+    //     event.preventDefault()
+    //     alert("!")
+    //     this.setState({...this.state.userInfo})
+    //     AppActions.showHide(showModal)
+    // }
 
   render() {
       if (!this.state.showModal) {
@@ -75,8 +78,9 @@ export default class UserModal extends Component {
         Hello World from a User's Modal! <br />
         If all goes as planned you should see me <br />
         when a timeslot button is clicked <br />
-        
-        <form onSubmit = {this.handleSubmit}>
+        <button onClick={()=> this.onButtonClick(false)}>Cancel</button>
+    
+        {/* <form onSubmit = {this.handleSubmit}>
             <input 
                 type='text'
                 name='name'
@@ -92,8 +96,8 @@ export default class UserModal extends Component {
                 onChange={this.handleChange}
                 /> <br/>
             <input type='submit' value='Save the date (or else)'/>
-            <button onClick={()=> this.onButtonClick(false)}>Cancel</button>
-        </form>
+            
+        </form> */}
       </div>
     )
   }
