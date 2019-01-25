@@ -30,8 +30,9 @@ class UserModalStore extends EventEmitter {
 
     handleActions(action) {
         switch(action.type) {
-            case "GET_ID": {
-                this.getUserID(action.number)
+            case "GET_USERINFO": {
+                this.getInfo(action.name) 
+                this.getInfo(action.phone)
                 break
             }
             default:
@@ -40,7 +41,7 @@ class UserModalStore extends EventEmitter {
 
 }
 
-const userIDStore = new UserIDStore()
-dispatcher.register(userIDStore.handleActions.bind(userIDStore))
+const userModalStore = new UserModalStore()
+dispatcher.register(userModalStore.handleActions.bind(userModalStore))
 
-export default userIDStore
+export default userModalStore
