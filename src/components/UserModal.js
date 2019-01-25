@@ -6,22 +6,27 @@ import styled from 'styled-components'
 import UserModalStore from '../store/UserModalStore'
 
 const ModalBackgroundDiv = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: fixed;
     top: 0;
-    bottom: 0;
-    left: 0;
     right: 0;
-    background-color: rgba(0,0,0,0.3);
-    padding: 50;
+    left: 0;
+    bottom: 0;
+    padding: 1rem;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+    animation: show .3s ease
 `
-// const ModalForm = styled.form`
-//     background-color: black;
-//     border-radius: 5;
-//     max-width: 500;
-//     min-height: 300;
-//     margin: 0 auto;
-//     padding: 30;
-// `
+const ModalForm = styled.div`
+    width: 500px;
+    background-color: #fff;
+    padding: 10px;`
+    
 export default class UserModal extends Component {
 
     state = {
@@ -74,30 +79,15 @@ export default class UserModal extends Component {
       }
 
     return (
-      <ModalBackgroundDiv >
-        Hello World from a User's Modal! <br />
-        If all goes as planned you should see me <br />
-        when a timeslot button is clicked <br />
-        <button onClick={()=> this.onButtonClick(false)}>Cancel</button>
-    
-        {/* <form onSubmit = {this.handleSubmit}>
-            <input 
-                type='text'
-                name='name'
-                placeholder='Enter your name'
-                value={this.state.userInfo.name}
-                onChange={this.handleChange}
-                /><br/>
-            <input 
-                type='text'
-                name='phone'
-                placeholder='Enter your phone number'
-                value={this.state.userInfo.phone}
-                onChange={this.handleChange}
-                /> <br/>
-            <input type='submit' value='Save the date (or else)'/>
-            
-        </form> */}
+      <ModalBackgroundDiv>
+          <ModalForm>
+
+            Hello World from a User's Modal! <br />
+            If all goes as planned you should see me <br />
+            when a timeslot button is clicked <br />
+            <button onClick={()=> this.onButtonClick(false)}>Cancel</button>
+
+          </ModalForm>
       </ModalBackgroundDiv>
     )
   }
