@@ -33,6 +33,8 @@ Coffee. Lots and lots of it.
 
 ### Wireframe
 
+![wireframe for project design](https://raw.githubusercontent.com/qchen3301/ScheduleAppCodeAssignment/master/wireframe.jpg)
+
 ## Completed 
 * App and components successfully implemented
 * Modal toggle successfully implemented using Flux's unidirectional data flow
