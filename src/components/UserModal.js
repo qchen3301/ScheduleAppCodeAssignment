@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AppStore from "../store/AppStore"
 import * as AppActions from "../actions/AppActions"
+import * as UserInfoActions from "../actions/UserInfoActions"
 import styled from 'styled-components'
 import UserModalStore from '../store/UserModalStore'
 
