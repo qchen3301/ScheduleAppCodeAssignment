@@ -31,8 +31,8 @@ class UserModalStore extends EventEmitter {
     handleActions(action) {
         switch(action.type) {
             case "GET_USERINFO": {
-                this.getInfo(action.name) 
-                this.getInfo(action.phone)
+                this.getName(action.name) 
+                this.getPhone(action.phone)
                 break
             }
             default:
