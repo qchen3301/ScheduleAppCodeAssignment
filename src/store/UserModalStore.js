@@ -5,13 +5,22 @@ class UserModalStore extends EventEmitter {
     constructor() {
         super()
         this.userInfo = {
+            id: '',
             name: '',
-            phone: ''
+            phone: '',
+            complete: false
         }
     }
 
-    getUserInfo(userInfoFromAppoint) {
-        this.userInfo = userInfoFromAppoint
+    createUserInfo(name, phone) {
+        const id =  1
+
+        this.userInfo = {
+            id,
+            name,
+            phone,
+            complete: true
+        }
         this.emit("change")
     }
 
