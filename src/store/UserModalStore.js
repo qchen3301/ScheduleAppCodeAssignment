@@ -4,23 +4,23 @@ import dispatcher from "../Dispatcher"
 class UserModalStore extends EventEmitter {
     constructor() {
         super()
-        this.userInfo = {
+        this.userInfo = [{
             id: '',
             name: '',
             phone: '',
             complete: false
-        }
+        }]
     }
 
     createUserInfo(name, phone) {
         const id =  1
 
-        this.userInfo = {
+        this.userInfo.push = ({
             id,
             name,
             phone,
             complete: true
-        }
+        })
         this.emit("change")
     }
 
@@ -43,5 +43,5 @@ class UserModalStore extends EventEmitter {
 
 const userModalStore = new UserModalStore()
 dispatcher.register(userModalStore.handleActions.bind(userModalStore))
-
+window.userModalStore = userModalStore
 export default userModalStore

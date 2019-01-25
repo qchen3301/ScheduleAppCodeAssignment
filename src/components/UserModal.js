@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AppStore from "../store/AppStore"
 import * as AppActions from "../actions/AppActions"
 import styled from 'styled-components'
+import UserModalStore from '../store/UserModalStore'
 
 // const ModalBackgroundDiv = styled.div`
 //     position: fixed;
@@ -24,12 +25,16 @@ export default class UserModal extends Component {
 
     state = {
         showModal: AppStore.getShowModal(),
-        userInfo: {
-            name:'',
-            phone:''
-        }
+        userInfo: UserModalStore.getAll()
     }
 
+    componentWillMount() {
+        UserModalStore.on("change", ()=> {
+            this.setState({
+                userInfo: UserModalStore.getAll()
+            })
+        })
+    }
     componentDidMount() {
         AppStore.on("modalToggled", this.showModal)
     }
