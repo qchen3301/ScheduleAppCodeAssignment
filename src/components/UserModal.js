@@ -20,7 +20,6 @@ const ModalBackgroundDiv = styled.div`
     opacity: 1;
     overflow-x: hidden;
     overflow-y: auto;
-    animation: show .3s ease
 `
 const ModalForm = styled.div`
     width: 500px;
@@ -83,8 +82,10 @@ export default class UserModal extends Component {
           <ModalForm>
 
             Hello World from a User's Modal! <br />
-            If all goes as planned you should see me <br />
-            when a timeslot button is clicked <br />
+            Please enter your personal information <br />
+            <input type="text" placeholder="Name"/> <br/>
+            <input type="text" placeholder="Phone (no dashes)"/> <br />
+            <button>Accept</button>
             <button onClick={()=> this.onButtonClick(false)}>Cancel</button>
 
           </ModalForm>
